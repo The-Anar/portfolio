@@ -132,6 +132,83 @@
             font-size: 1.05rem;
         }
 
+.projects-intro {
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    color: var(--muted);
+    flex: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 20px;
+}
+
+.project-tags span {
+    background: var(--surface-light);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.project-card > a {
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+@media (max-width: 850px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -263,9 +340,108 @@
         <span>Web Accessibility</span>
     </div>
 </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-        </section>
+        
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <p class="projects-intro">
+        Some of the projects I have worked on while learning
+        Web Programming and software development.
+    </p>
+
+    <div class="projects-grid">
+
+        <article class="project-card finora-card">
+            <div class="project-number">01 / FINANCE APPLICATION</div>
+            <h3>FINORA — Personal Finance Management System</h3>
+            <p>
+                A personal finance management application developed
+                with Ankhorgil. It helps users track income and expenses,
+                manage transactions, and organize their finances.
+            </p>
+            <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Finance Dashboard</span>
+            </div>
+            <a href="https://the-anar.github.io/WEB-programming/FINORA-PROJECT/app/index.html"
+               target="_blank" rel="noopener noreferrer">
+                Explore Live App →
+            </a>
+            <a href="https://github.com/The-Anar/WEB-programming"
+               target="_blank" rel="noopener noreferrer">
+                View Source Code →
+            </a>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">02 / WEB DEVELOPMENT</div>
+            <h3>Web Programming Portfolio</h3>
+            <p>
+                My coursework portfolio containing weekly topics,
+                exercises, assignments, and practical web development
+                projects from Gachon University.
+            </p>
+            <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+            <a href="https://the-anar.github.io/WEB-programming/"
+               target="_blank" rel="noopener noreferrer">
+                View Live Website →
+            </a>
+            <a href="https://github.com/The-Anar/WEB-programming"
+               target="_blank" rel="noopener noreferrer">
+                View Source Code →
+            </a>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">03 / GIT & GITHUB</div>
+            <h3>Week 9 Homework Website</h3>
+            <p>
+                A published homework homepage created to practice
+                Git, GitHub repositories, commits, and GitHub Pages.
+            </p>
+            <div class="project-tags">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>GitHub Pages</span>
+            </div>
+            <a href="https://the-anar.github.io/webpro-w9/"
+               target="_blank" rel="noopener noreferrer">
+                View Live Website →
+            </a>
+            <a href="https://github.com/The-Anar/webpro-w9"
+               target="_blank" rel="noopener noreferrer">
+                View Source Code →
+            </a>
+        </article>
+
+        <article class="project-card">
+            <div class="project-number">04 / PERSONAL PROJECT</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+                My personal website introducing my background,
+                technical skills, and development progress as
+                a Computer Engineering student.
+            </p>
+            <div class="project-tags">
+                <span>Responsive Design</span>
+                <span>HTML</span>
+                <span>CSS</span>
+            </div>
+            <a href="https://github.com/The-Anar/portfolio"
+               target="_blank" rel="noopener noreferrer">
+                View GitHub Repository →
+            </a>
+        </article>
+
+    </div>
+</section>
+
     </main>
 
     <footer>
