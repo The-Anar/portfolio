@@ -166,6 +166,32 @@
                 padding: 30px 20px;
             }
         }
+        #skills > p {
+    color: var(--muted);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.skills-list span {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.skills-list span:hover {
+    background: var(--surface-light);
+    transform: translateY(-3px);
+}
     </style>
 </head>
 
@@ -218,9 +244,25 @@
         </section>
 
         <section id="skills">
-            <h2>My Skills</h2>
-        </section>
+    <h2>My Skills</h2>
 
+    <p>
+        Technologies and concepts I have been learning
+        through my Web Programming coursework.
+    </p>
+
+    <div class="skills-list">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>Semantic HTML</span>
+        <span>Responsive Design</span>
+        <span>CSS Flexbox & Grid</span>
+        <span>Git & GitHub</span>
+        <span>Web Accessibility</span>
+    </div>
+</section>
         <section id="projects">
             <h2>My Projects</h2>
         </section>
