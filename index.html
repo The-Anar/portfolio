@@ -19,6 +19,17 @@
             --border: #394763;
         }
 
+        [data-theme="light"] {
+            color-scheme: light;
+            --bg: #F5F3FF;
+            --surface: #FFFFFF;
+            --surface-light: #EDE9FE;
+            --text: #24203A;
+            --muted: #68627D;
+            --accent: #7652C8;
+            --border: #DDD6F2;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -44,7 +55,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(23, 29, 46, 0.95);
+            background: var(--bg);
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(12px);
         }
@@ -65,17 +76,33 @@
             color: var(--accent);
         }
 
-        nav div {
+        .nav-links {
             display: flex;
+            align-items: center;
             gap: 24px;
+            flex-wrap: wrap;
         }
 
-        nav div a {
+        .nav-links a {
             color: var(--muted);
         }
 
-        nav div a:hover {
+        .nav-links a:hover {
             color: var(--accent);
+        }
+
+        #theme-toggle {
+            background: var(--surface);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            padding: 8px 13px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #theme-toggle:hover {
+            background: var(--surface-light);
         }
 
         main {
@@ -132,82 +159,97 @@
             font-size: 1.05rem;
         }
 
-.projects-intro {
-    color: var(--muted);
-    margin-bottom: 28px;
-}
+        #skills > p {
+            color: var(--muted);
+        }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
 
-.project-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 25px;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
+        .skills-list span {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
 
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-}
+        .skills-list span:hover {
+            background: var(--surface-light);
+            transform: translateY(-3px);
+        }
 
-.project-number {
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
+        .projects-intro {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
 
-.project-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-}
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-.project-card p {
-    color: var(--muted);
-    flex: 1;
-}
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
 
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0 20px;
-}
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
 
-.project-tags span {
-    background: var(--surface-light);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: var(--muted);
-}
+        .project-number {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
 
-.project-card > a {
-    color: var(--accent);
-    font-weight: 700;
-    margin-top: 8px;
-}
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
 
-@media (max-width: 850px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        .project-card p {
+            color: var(--muted);
+            flex: 1;
+        }
 
-@media (max-width: 550px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 20px;
+        }
+
+        .project-tags span {
+            background: var(--surface-light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .project-card > a {
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 8px;
+        }
 
         footer {
             text-align: center;
@@ -216,14 +258,19 @@
             border-top: 1px solid var(--border);
         }
 
+        @media (max-width: 850px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 650px) {
             nav {
                 flex-direction: column;
             }
 
-            nav div {
+            .nav-links {
                 gap: 16px;
-                flex-wrap: wrap;
                 justify-content: center;
             }
 
@@ -243,32 +290,12 @@
                 padding: 30px 20px;
             }
         }
-        #skills > p {
-    color: var(--muted);
-}
 
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.skills-list span {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--accent);
-    padding: 10px 18px;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.skills-list span:hover {
-    background: var(--surface-light);
-    transform: translateY(-3px);
-}
+        @media (max-width: 550px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -278,175 +305,216 @@
         <nav>
             <a href="#home">Anar</a>
 
-            <div>
+            <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <button id="theme-toggle" type="button" aria-pressed="false">
+                    ☀ Light mode
+                </button>
             </div>
         </nav>
     </header>
 
     <main>
+
         <section id="home">
-    <div class="hero">
-        <div class="hero-image">
-            <img
-                src="https://github.com/The-Anar.png"
-                alt="Profile picture of Batsuren Anar"
-                width="180"
-            >
-        </div>
+            <div class="hero">
+                <div class="hero-image">
+                    <img
+                        src="https://github.com/The-Anar.png"
+                        alt="Profile picture of Batsuren Anar"
+                        width="180"
+                    >
+                </div>
 
-        <div class="hero-content">
-            <p>WEB PROGRAMMING STUDENT · GACHON UNIVERSITY</p>
+                <div class="hero-content">
+                    <p>WEB PROGRAMMING STUDENT · GACHON UNIVERSITY</p>
 
-            <h1>Hi, I'm Batsuren Anar.</h1>
+                    <h1>Hi, I'm Batsuren Anar.</h1>
 
-            <p>
-                I'm a Computer Engineering student learning to build
-                websites and software through programming, logical
-                thinking, and practical projects.
-            </p>
+                    <p>
+                        I'm a Computer Engineering student learning to build
+                        websites and software through programming, logical
+                        thinking, and practical projects.
+                    </p>
 
-            <p>
-                I enjoy solving problems, learning new technologies,
-                and improving my coding skills step by step.
-            </p>
-        </div>
-    </div>
-</section>
+                    <p>
+                        I enjoy solving problems, learning new technologies,
+                        and improving my coding skills step by step.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <section id="about">
             <h2>About Me</h2>
         </section>
 
         <section id="skills">
-    <h2>My Skills</h2>
+            <h2>My Skills</h2>
 
-    <p>
-        Technologies and concepts I have been learning
-        through my Web Programming coursework.
-    </p>
-
-    <div class="skills-list">
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>Semantic HTML</span>
-        <span>Responsive Design</span>
-        <span>CSS Flexbox & Grid</span>
-        <span>Git & GitHub</span>
-        <span>Web Accessibility</span>
-    </div>
-</section>
-        
-<section id="projects">
-    <h2>My Projects</h2>
-
-    <p class="projects-intro">
-        Some of the projects I have worked on while learning
-        Web Programming and software development.
-    </p>
-
-    <div class="projects-grid">
-
-        <article class="project-card finora-card">
-            <div class="project-number">01 / FINANCE APPLICATION</div>
-            <h3>FINORA — Personal Finance Management System</h3>
             <p>
-                A personal finance management application developed
-                with Ankhorgil. It helps users track income and expenses,
-                manage transactions, and organize their finances.
+                Technologies and concepts I have been learning
+                through my Web Programming coursework.
             </p>
-            <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
+
+            <div class="skills-list">
+                <span>HTML5</span>
+                <span>CSS3</span>
                 <span>JavaScript</span>
-                <span>Finance Dashboard</span>
-            </div>
-            <a href="https://the-anar.github.io/WEB-programming/FINORA-PROJECT/app/index.html"
-               target="_blank" rel="noopener noreferrer">
-                Explore Live App →
-            </a>
-            <a href="https://github.com/The-Anar/WEB-programming"
-               target="_blank" rel="noopener noreferrer">
-                View Source Code →
-            </a>
-        </article>
-
-        <article class="project-card">
-            <div class="project-number">02 / WEB DEVELOPMENT</div>
-            <h3>Web Programming Portfolio</h3>
-            <p>
-                My coursework portfolio containing weekly topics,
-                exercises, assignments, and practical web development
-                projects from Gachon University.
-            </p>
-            <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-            </div>
-            <a href="https://the-anar.github.io/WEB-programming/"
-               target="_blank" rel="noopener noreferrer">
-                View Live Website →
-            </a>
-            <a href="https://github.com/The-Anar/WEB-programming"
-               target="_blank" rel="noopener noreferrer">
-                View Source Code →
-            </a>
-        </article>
-
-        <article class="project-card">
-            <div class="project-number">03 / GIT & GITHUB</div>
-            <h3>Week 9 Homework Website</h3>
-            <p>
-                A published homework homepage created to practice
-                Git, GitHub repositories, commits, and GitHub Pages.
-            </p>
-            <div class="project-tags">
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>GitHub Pages</span>
-            </div>
-            <a href="https://the-anar.github.io/webpro-w9/"
-               target="_blank" rel="noopener noreferrer">
-                View Live Website →
-            </a>
-            <a href="https://github.com/The-Anar/webpro-w9"
-               target="_blank" rel="noopener noreferrer">
-                View Source Code →
-            </a>
-        </article>
-
-        <article class="project-card">
-            <div class="project-number">04 / PERSONAL PROJECT</div>
-            <h3>Personal Portfolio</h3>
-            <p>
-                My personal website introducing my background,
-                technical skills, and development progress as
-                a Computer Engineering student.
-            </p>
-            <div class="project-tags">
+                <span>Python</span>
+                <span>Semantic HTML</span>
                 <span>Responsive Design</span>
-                <span>HTML</span>
-                <span>CSS</span>
+                <span>CSS Flexbox & Grid</span>
+                <span>Git & GitHub</span>
+                <span>Web Accessibility</span>
             </div>
-            <a href="https://github.com/The-Anar/portfolio"
-               target="_blank" rel="noopener noreferrer">
-                View GitHub Repository →
-            </a>
-        </article>
+        </section>
 
-    </div>
-</section>
+        <section id="projects">
+            <h2>My Projects</h2>
+
+            <p class="projects-intro">
+                Some of the projects I have worked on while learning
+                Web Programming and software development.
+            </p>
+
+            <div class="projects-grid">
+
+                <article class="project-card finora-card">
+                    <div class="project-number">01 / FINANCE APPLICATION</div>
+                    <h3>FINORA — Personal Finance Management System</h3>
+                    <p>
+                        A personal finance management application developed
+                        with Ankhorgil. It helps users track income and expenses,
+                        manage transactions, and organize their finances.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Finance Dashboard</span>
+                    </div>
+                    <a href="https://the-anar.github.io/WEB-programming/FINORA-PROJECT/app/index.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Explore Live App →
+                    </a>
+                    <a href="https://github.com/The-Anar/WEB-programming"
+                       target="_blank" rel="noopener noreferrer">
+                        View Source Code →
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">02 / WEB DEVELOPMENT</div>
+                    <h3>Web Programming Portfolio</h3>
+                    <p>
+                        My coursework portfolio containing weekly topics,
+                        exercises, assignments, and practical web development
+                        projects from Gachon University.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="https://the-anar.github.io/WEB-programming/"
+                       target="_blank" rel="noopener noreferrer">
+                        View Live Website →
+                    </a>
+                    <a href="https://github.com/The-Anar/WEB-programming"
+                       target="_blank" rel="noopener noreferrer">
+                        View Source Code →
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">03 / GIT & GITHUB</div>
+                    <h3>Week 9 Homework Website</h3>
+                    <p>
+                        A published homework homepage created to practice
+                        Git, GitHub repositories, commits, and GitHub Pages.
+                    </p>
+                    <div class="project-tags">
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>GitHub Pages</span>
+                    </div>
+                    <a href="https://the-anar.github.io/webpro-w9/"
+                       target="_blank" rel="noopener noreferrer">
+                        View Live Website →
+                    </a>
+                    <a href="https://github.com/The-Anar/webpro-w9"
+                       target="_blank" rel="noopener noreferrer">
+                        View Source Code →
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">04 / PERSONAL PROJECT</div>
+                    <h3>Personal Portfolio</h3>
+                    <p>
+                        My personal website introducing my background,
+                        technical skills, and development progress as
+                        a Computer Engineering student.
+                    </p>
+                    <div class="project-tags">
+                        <span>Responsive Design</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <a href="https://github.com/The-Anar/portfolio"
+                       target="_blank" rel="noopener noreferrer">
+                        View GitHub Repository →
+                    </a>
+                </article>
+
+            </div>
+        </section>
 
     </main>
 
     <footer>
         <p>© 2026 Batsuren Anar · Gachon University</p>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+
+        const savedTheme = localStorage.getItem("theme");
+
+        function updateThemeButton(theme) {
+            if (theme === "light") {
+                themeToggle.textContent = "☾ Dark mode";
+                themeToggle.setAttribute("aria-pressed", "true");
+            } else {
+                themeToggle.textContent = "☀ Light mode";
+                themeToggle.setAttribute("aria-pressed", "false");
+            }
+        }
+
+        if (savedTheme === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+
+        updateThemeButton(savedTheme);
+
+        themeToggle.addEventListener("click", function () {
+            const currentTheme =
+                document.documentElement.getAttribute("data-theme");
+
+            if (currentTheme === "light") {
+                document.documentElement.removeAttribute("data-theme");
+                localStorage.setItem("theme", "dark");
+                updateThemeButton("dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("theme", "light");
+                updateThemeButton("light");
+            }
+        });
+    </script>
 
 </body>
 </html>
