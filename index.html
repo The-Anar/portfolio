@@ -6,7 +6,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#171D2E">
     <title>Anar | Web Programming Portfolio</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #171D2E;
+            --surface: #202941;
+            --surface-light: #293550;
+            --text: #EDF0FF;
+            --muted: #AAB5D0;
+            --accent: #A78BFA;
+            --border: #394763;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(23, 29, 46, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav > a {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        nav div {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav div a {
+            color: var(--muted);
+        }
+
+        nav div a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 24px;
+        }
+
+        section {
+            margin-bottom: 90px;
+            scroll-margin-top: 90px;
+        }
+
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .hero-image img {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 35px rgba(167, 139, 250, 0.2);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-content > p:first-child {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p:not(:first-child) {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav div {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+                padding-top: 30px;
+            }
+
+            .hero-image img {
+                width: 155px;
+                height: 155px;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header>
